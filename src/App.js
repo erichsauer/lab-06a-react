@@ -9,10 +9,9 @@ import {
 
 function App() {
   return (
-    <div className="App">
       <Router>
         <Switch>
-          <header className="App-header">
+          <main className="App-main">
           <Route 
                 path="/" 
                 exact
@@ -23,10 +22,9 @@ function App() {
                 exact
                 render={(routerProps) => <Detail {...routerProps} />} 
               />
-      </header>
-      </ Switch>
+          </main>
+        </ Switch>
       </Router>
-    </div>
   );
 }
 
