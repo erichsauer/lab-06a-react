@@ -19,12 +19,12 @@ export default class List extends Component {
     });
     // sends request to pokemon api and awaits pokemon list load!
     // (superagent must be installed)
-    const data = await request.get(`https://lab-06a-node.herokuapp.com/plants/`);
+    const data = await request.get(`https://arcane-falls-19139.herokuapp.com/plants`);
     
     // set state.loading to false for loading spinner display end
     this.setState({ 
         loading: false,
-        plants: data.body.results,
+        plants: data.body,
     });
     }
     
