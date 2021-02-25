@@ -80,7 +80,7 @@ export default class AddPage extends Component {
 
         await newPlant(body)
 
-        this.setState({
+        await this.setState({
             name: '',
             description: '',
             image: '',
@@ -91,8 +91,14 @@ export default class AddPage extends Component {
     }
 
     render() {
+        console.log(this.state)
         return (
             <section>
+                <img
+                    className='page-header'
+                    src='https://erichsauer.github.io/lab-06-static-product-page/assets/images/header-image.jpg'
+                    alt='header flower'
+                />
                 <h2>
                     Add New Item
                 </h2>
@@ -105,8 +111,14 @@ export default class AddPage extends Component {
                     handleFragrant={this.handleFragrant}
                     handleCategory={this.handleCategory} />
                 <div className='buttons-container'>
-                    <Link to={'/'}><h3>🙅‍♀️</h3></Link>
-                    <Link to={'/'}><h3 onClick={this.handleAdd}>✔</h3></Link>
+                <div className="tooltip">
+                    <span className="tooltiptext">Nevermind!</span>
+                    <Link to={'/list'}><h3>💣</h3></Link>
+                </div>
+                <div className="tooltip">
+                    <span className="tooltiptext">Add Item</span>
+                    <Link to={'/list/'}><h3 onClick={this.handleAdd}>✔</h3></Link>
+                </div>
                 </div>
             </section>
         )

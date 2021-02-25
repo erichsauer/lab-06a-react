@@ -1,20 +1,35 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 
-export default class Nav extends Component {
+export default withRouter(class Nav extends Component {
     render() {
         return (
             <nav>
-                <Link to='/'>
-                    Home
-                </Link>
-                <Link to='/details/1'>
-                    Detail
-                </Link>
-                <Link to='/add'>
-                    Add New
-                </Link>
+                {this.props.location.pathname !==
+                    '/' &&
+                    <NavLink
+                        exact
+                        to="/">
+                        Home
+                    </NavLink>
+                }
+                {this.props.location.pathname !==
+                    '/list' &&
+                    <NavLink
+                        exact
+                        to="/list">
+                        Item List
+                    </NavLink>
+                }
+                {this.props.location.pathname !==
+                    '/add' &&
+                    <NavLink
+                        exact
+                        to="/add">
+                        Add New
+                    </NavLink>
+                }
             </nav>
         )
     }
-}
+})
