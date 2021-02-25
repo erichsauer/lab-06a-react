@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import request from 'superagent';
 import { Link } from 'react-router-dom';
+import { getPlants } from './api-utils.js'
 
 export default class List extends Component {
     state = {
@@ -19,26 +19,27 @@ export default class List extends Component {
     });
     // sends request to pokemon api and awaits pokemon list load!
     // (superagent must be installed)
-    const data = await request.get(`https://arcane-falls-19139.herokuapp.com/plants`);
+    const data = await getPlants();
     
     // set state.loading to false for loading spinner display end
     this.setState({ 
         loading: false,
-        plants: data.body,
+        plants: data,
     });
     }
     
     render() {
+        console.log(this.state);
         const renderedPlants = this.state.plants.map(plant => {
-            return <Link key={plant.id} to={`/${plant.id}`}>
+            return <Link key={plant.id} to={`/details/${plant.id}`}>
                 <p className='list-item'>{plant.name}</p>
             </Link>
         })
         return (
-            <div className='list'>
+            <section>
                 <h1>A Modest List of Special Plants</h1>
             {renderedPlants}
-            </div>
+            </section>
         )
     }
 }
