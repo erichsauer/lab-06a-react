@@ -74,7 +74,8 @@ body {
   color: #282c34;
   height: 100vh;
   font-size: calc(10px + 2vmin);
-  padding: 2em;
+  padding: 1em;
+  padding-top: 0;
 }
 
 nav {
@@ -129,20 +130,21 @@ section {
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 100%;
+  width: 80%;
   align-items: flex-start;
+  padding-top: 0px
 }
 
 .list-image {
   outline: white solid 1px;
   outline-offset: -4px;
-  width: 100px;
+  width: 75px;
 }
 
 p {
   margin-top: 5px;
   margin-bottom: 20px;
-  font-size: .75em;
+  font-size: 14pt;
 }
 
 .list-container {
