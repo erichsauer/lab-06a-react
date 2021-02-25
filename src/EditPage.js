@@ -150,6 +150,7 @@ export default class AddPage extends Component {
 
     handleDelete = async (e) => {
         await deletePlant(this.state.id)
+        await this.props.history.push('/list')
     }
 
     render() {
@@ -187,7 +188,7 @@ export default class AddPage extends Component {
                 <div className='buttons-container'>
                 <div className="tooltip">
                     <span className="tooltiptext">Delete Item</span>
-                    <Link to={'/list/'}><h3 onClick={this.handleDelete}>🗑</h3></Link>
+                    <button onClick={this.handleDelete}>🗑</button>
                 </div>
                 <div className="tooltip">
                     <span className="tooltiptext">Edit Item</span>

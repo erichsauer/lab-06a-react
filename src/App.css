@@ -75,7 +75,6 @@ body {
   height: 100vh;
   font-size: calc(10px + 2vmin);
   padding: 1em;
-  padding-top: 0;
 }
 
 nav {
@@ -84,6 +83,7 @@ nav {
   flex-direction: column;
   font-size: .5em;
   height: 100vh;
+  padding-top: 25px;
 }
 
 a:link {
@@ -241,6 +241,7 @@ h1, h2, h3 {
 }
 
 .page-title {
+  max-width: 500px;
   font-size: 5rem;
   line-height: 4.5rem;
   margin-top: 20px;
@@ -251,10 +252,11 @@ h1, h2, h3 {
 }
 
 .header-image {
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   outline: white solid 2px;
   outline-offset: -10px;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 .page-header {
@@ -262,6 +264,7 @@ h1, h2, h3 {
   outline: white solid 2px;
   outline-offset: -7px;
   margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 @keyframes color-change {

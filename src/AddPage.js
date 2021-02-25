@@ -87,7 +87,8 @@ export default class AddPage extends Component {
             price: '',
             fragrant: false,
             category: '',
-            })
+        })
+        await this.props.history.push('/list')
     }
 
     render() {
@@ -117,7 +118,7 @@ export default class AddPage extends Component {
                 </div>
                 <div className="tooltip">
                     <span className="tooltiptext">Add Item</span>
-                    <Link to={'/list/'}><h3 onClick={this.handleAdd}>✔</h3></Link>
+                    <button onClick={this.handleAdd}>✔</button>
                 </div>
                 </div>
             </section>
