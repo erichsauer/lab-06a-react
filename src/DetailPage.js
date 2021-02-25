@@ -100,7 +100,6 @@ export default class DetailPage extends Component {
                             {this.state.plant.name}
                         </h2>
                         <img src=
-                            // 'http://placekitten.com/300'
                             {this.state.plant.image}
                             className="plant-image" alt="plant" />
                         <div className='description'>

@@ -11,7 +11,7 @@ export default class List extends Component {
 
     componentDidMount = async () => {
         await this.loadPlants();
-        console.log(this.state)
+        console.log('mounted')
     }
     
     loadPlants = async () => {  
@@ -23,6 +23,7 @@ export default class List extends Component {
     const data = await getPlants();
     
     // set state.loading to false for loading spinner display end
+        console.log('data:', data)
     this.setState({ 
         loading: false,
         plants: data,
