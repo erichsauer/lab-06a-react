@@ -1,6 +1,9 @@
 import './App.css';
-import Detail from './Detail'
-import List from './List'
+import DetailPage from './DetailPage'
+import ListPage from './ListPage'
+import NavBar from './NavBar'
+import AddPage from './AddPage'
+import EditPage from './EditPage'
 import {
   BrowserRouter as Router, 
   Route, 
@@ -12,16 +15,27 @@ function App() {
       <Router>
         <Switch>
           <main className="App-main">
-          <Route 
-                path="/" 
-                exact
-                render={(routerProps) => <List {...routerProps} />} 
-              />
-          <Route 
-                path="/:id" 
-                exact
-                render={(routerProps) => <Detail {...routerProps} />} 
-              />
+            <NavBar/>
+            <Route 
+                  path="/" 
+                  exact
+                  render={(routerProps) => <ListPage {...routerProps} />} 
+                  />
+            <Route 
+                  path="/details/:id" 
+                  exact
+                  render={(routerProps) => <DetailPage {...routerProps} />} 
+                />
+            <Route 
+                  path="/add"
+                  exact
+                  render={(routerProps) => <AddPage {...routerProps} />} 
+                />
+            <Route 
+                  path="/edit/:id"
+                  exact
+                  render={(routerProps) => <EditPage {...routerProps} />} 
+                />
           </main>
         </ Switch>
       </Router>
