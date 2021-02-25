@@ -15,6 +15,8 @@ export default class AddPage extends Component {
         loading: false,
         categories: [],
         idIndex: 0,
+        largestId: 0,
+        smallestId: 0,
         idsArray: [],
         numberPlants: 0,
     }
@@ -34,6 +36,8 @@ export default class AddPage extends Component {
         const id = !idsArray.find(id => id === params) ? 1 : params
         const categories = await getCategories()
         const plant = await getPlant(id)
+        const largestId = Math.max(...idsArray)
+        const smallestId = Math.min(...idsArray)
 
         await this.setState({
             id: id,
@@ -47,6 +51,8 @@ export default class AddPage extends Component {
             categories: categories,
             numberPlants: plants.length,
             idsArray: idsArray,
+            largestId: largestId,
+            smallestId: smallestId,
             idIndex: idsArray.indexOf(id)
             })
     }
@@ -151,14 +157,20 @@ export default class AddPage extends Component {
             <section>
                 <div className='button-div'>
                     <button
-                        disabled={this.state.id === 1}
+                        className='nav-arrows'
+                        disabled={this.state.id === this.state.smallestId}
                         onClick={this.handlePrev}>
-                        {`<<`}
+                        ↞
                     </button>
+                    <div className="tooltip">
+                    <span className="tooltiptext">Back To Item</span>
+                    <Link to={'/list/' + this.state.id}><h3>🌸</h3></Link>
+                </div>
                     <button
-                        disabled={this.state.id === 6}
+                        className='nav-arrows'
+                        disabled={this.state.id === this.state.largestId}
                         onClick={this.handleNext}>
-                        {`>>`}
+                        ↠
                     </button>
                 </div>
                 <h2>
@@ -173,9 +185,15 @@ export default class AddPage extends Component {
                     handleFragrant={this.handleFragrant}
                     handleCategory={this.handleCategory} />
                 <div className='buttons-container'>
-                    <Link to={'/'}><h3 onClick={this.handleDelete}>🗑</h3></Link>
-                    <Link to={'/'}><h3>🙅‍♀️</h3></Link>
-                    <Link to={'/'}><h3 onClick={this.handleUpdate}>✔</h3></Link>
+                <div className="tooltip">
+                    <span className="tooltiptext">Delete Item</span>
+                    <Link to={'/list/'}><h3 onClick={this.handleDelete}>🗑</h3></Link>
+                </div>
+                <div className="tooltip">
+                    <span className="tooltiptext">Edit Item</span>
+                    <Link to={'/list/' + this.state.id}><h3 onClick={this.handleUpdate}>✔</h3></Link>
+                </div>
+
                 </div>
             </section>
         )

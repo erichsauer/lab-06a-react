@@ -10,6 +10,7 @@ export default class Form extends Component {
             <form>
                 <input
                     placeholder='Plant Name'
+                    className='form-element'
                     type='text'
                     onChange={this.props.handleName}
                     value={this.props.state.name}/>
@@ -21,6 +22,7 @@ export default class Form extends Component {
                     value={this.props.state.description}/>
                 <input
                     placeholder='Image URL'
+                    className='form-element'
                     type='url'
                     onChange={this.props.handleImage}
                     value={this.props.state.image} />
@@ -28,7 +30,7 @@ export default class Form extends Component {
                     <label>
                         €
                         <input
-                            className='price'
+                            className='form-price'
                             placeholder='Price'
                             type='number'
                             onChange={this.props.handlePrice}
@@ -40,11 +42,12 @@ export default class Form extends Component {
                             type='checkbox'
                             onChange={this.props.handleFragrant}
                             checked={this.props.state.fragrant}
-                        />
+                            />
                     </label>
                 </div>
                 <select
                     value={this.props.state.category}
+                    className='form-element'
                     onChange={this.props.handleCategory}>
                     <option value=''>Select</option>
                     {options}

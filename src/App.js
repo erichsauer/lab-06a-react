@@ -4,6 +4,7 @@ import ListPage from './ListPage'
 import NavBar from './NavBar'
 import AddPage from './AddPage'
 import EditPage from './EditPage'
+import HomePage from './HomePage.js'
 import {
   BrowserRouter as Router, 
   Route, 
@@ -19,10 +20,15 @@ function App() {
             <Route 
                   path="/" 
                   exact
+                  render={(routerProps) => <HomePage {...routerProps} />} 
+                  />
+            <Route 
+                  path="/list" 
+                  exact
                   render={(routerProps) => <ListPage {...routerProps} />} 
                   />
             <Route 
-                  path="/details/:id" 
+                  path="/list/:id" 
                   exact
                   render={(routerProps) => <DetailPage {...routerProps} />} 
                 />
